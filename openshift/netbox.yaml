@@ -188,15 +188,15 @@ objects:
             value: "5432"
           - name: NETBOX_DEBUG
             value: "False"
+          - name: REDIS_HOST
+            value: "localhost"
+          - name: REDIS_PORT
+            value: "6379"
           - name: DJANGO_SECRET_KEY
             valueFrom:
               secretKeyRef:
                 key: django-secret-key
                 name: ${NAME}
-          - name: REDIS_HOST
-            value: "localhost"
-          - name: REDIS_PORT
-            value: "6379"
           - name: DATABASE_NAME
             valueFrom:
               secretKeyRef:
