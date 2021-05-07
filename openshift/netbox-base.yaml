@@ -17,7 +17,7 @@ parameters:
 - displayName: Git Remote
   name: GIT_REMOTE
   required: true
-  value: https://github.com/leoluk/openshift-netbox
+  value: https://github.com/RoxyLovesToCode/openshift-netbox
 - displayName: Git Reference
   name: GIT_REF
   required: true

@@ -21,7 +21,7 @@ parameters:
 - displayName: Git Reference
   name: GIT_REF
   required: true
-  value: v2.5.12
+  value: v2.11.3
 - displayName: Public FQDN
   name: FQDN
   required: true
@@ -61,6 +61,16 @@ parameters:
   name: POSTGRESQL_VERSION
   required: true
   value: "9.6"
+- description: Redis Host Name
+  displayName: Host Name of Redis
+  name: REDIS_HOST
+  required: true
+  value: "localhost"
+- description: Redis Host Port
+  displayName: Port Number of Redis
+  name: REDIS_PORT
+  required: true
+  value: "6379"
 
 objects:
 
@@ -99,6 +109,23 @@ objects:
           'PASSWORD': os.getenv('DATABASE_PASSWORD'),
           'HOST': os.getenv('DATABASE_SERVICE_HOST'),
           'PORT': os.getenv('DATABASE_SERVICE_PORT'),
+      }
+
+      REDIS = {
+        'tasks': {
+            'HOST': os.getenv('REDIS_HOST'),
+            'PORT': os.getenv('REDIS_PORT'),
+            'PASSWORD': '',
+            'DATABASE': 0,
+            'SSL': False
+        },
+        'caching': {
+            'HOST': 'os.getenv('REDIS_HOST')',
+            'PORT': os.getenv('REDIS_PORT'),
+            'PASSWORD': '',
+            'DATABASE': 1,
+            'SSL': False
+        }
       }
 
 - apiVersion: v1
@@ -175,6 +202,16 @@ objects:
             valueFrom:
               secretKeyRef:
                 key: django-secret-key
+                name: ${NAME}
+          - name: REDIS_HOST
+            valueFrom:
+              secretKeyRef:
+                key: redis-host
+                name: ${NAME}
+          - name: REDIS_PORT
+            valueFrom:
+              secretKeyRef:
+                key: redis-port
                 name: ${NAME}
           - name: DATABASE_NAME
             valueFrom:
