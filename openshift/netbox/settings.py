@@ -9,9 +9,9 @@ from netbox.upstream_settings import *
 
 # Serve static files
 
-MIDDLEWARE = (
+MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
-) + MIDDLEWARE
+] + MIDDLEWARE
 
 # OpenShift OAuth monkey patching
 
@@ -20,9 +20,9 @@ MIDDLEWARE = [
         x == 'utilities.middleware.LoginRequiredMiddleware' else x
     for x in MIDDLEWARE]
 
-AUTHENTICATION_BACKENDS = (
+AUTHENTICATION_BACKENDS = [
     'netbox.openshift_auth.OpenshiftOAuth2',
-)
+]
 
 LOGIN_URL = '/oauth/login/openshift'
 

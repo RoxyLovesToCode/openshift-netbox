@@ -6,13 +6,16 @@ shopt -s dotglob
 echo "---> Installing application source ..."
 mv /tmp/src/* "$HOME"
 
+echo "---> Installing actual setuptools ..."
+pip install --upgrade pip==20.1
+pip install --upgrade setuptools==46.2.0
+
 echo "---> Installing dependencies ..."
 pip install -r requirements.txt
 
 echo "---> Installing extra dependencies ..."
 pip3 install \
-    gunicorn==19.9.0 \
-    whitenoise==4.1.2 \
+    whitenoise==5.0.1 \
     social-auth-core==3.1.0 \
     social-auth-app-django==3.1.0
 
