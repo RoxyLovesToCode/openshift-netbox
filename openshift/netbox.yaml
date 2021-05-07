@@ -203,16 +203,16 @@ objects:
               secretKeyRef:
                 key: django-secret-key
                 name: ${NAME}
-          - name: REDIS_HOST
-            valueFrom:
-              secretKeyRef:
-                key: redis-host
-                name: ${NAME}
-          - name: REDIS_PORT
-            valueFrom:
-              secretKeyRef:
-                key: redis-port
-                name: ${NAME}
+          # - name: REDIS_HOST
+          #   valueFrom:
+          #     secretKeyRef:
+          #       key: redis-host
+          #       name: ${NAME}
+          # - name: REDIS_PORT
+          #   valueFrom:
+          #     secretKeyRef:
+          #       key: redis-port
+          #       name: ${NAME}
           - name: DATABASE_NAME
             valueFrom:
               secretKeyRef:
