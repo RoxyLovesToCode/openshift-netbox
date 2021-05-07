@@ -22,6 +22,14 @@ parameters:
   name: GIT_REF
   required: true
   value: master
+- displayName: Git Remote
+  name: GIT_REMOTE2
+  required: true
+  value: https://github.com/digitalocean/netbox
+- displayName: Git Reference
+  name: GIT_REF2
+  required: true
+  value: master
 
 objects:
 
