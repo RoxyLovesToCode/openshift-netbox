@@ -7,6 +7,4 @@ from netbox.openshift_auth import LogoutView
 
 urlpatterns = [
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
-] + urlpatterns + [
-    url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
