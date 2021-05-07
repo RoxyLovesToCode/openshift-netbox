@@ -52,7 +52,7 @@ objects:
       dockerStrategy:
         from:
           kind: ImageStreamTag
-          name: python:3.7
+          name: python:3.6
           namespace: openshift
       type: Docker
     triggers:
