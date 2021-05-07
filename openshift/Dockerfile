@@ -14,7 +14,5 @@ COPY netbox/openshift_urls.py /opt/app-root/etc/
 COPY netbox/openshift_middleware.py /opt/app-root/etc/
 COPY netbox/openshift_auth.py /opt/app-root/etc/
 
-RUN chown -R default /opt/app-root/src/netbox/static
-
 USER 1001
 
