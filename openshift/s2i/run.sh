@@ -31,6 +31,8 @@ APP_HOME=$(readlink -f "${APP_HOME:-.}")
 PYTHONPATH="$(pwd)${PYTHONPATH:+:$PYTHONPATH}"
 cd "$APP_HOME"
 
+fix-permissions /opt/app-root
+
 # Look for 'manage.py' in the current directory
 manage_file=./manage.py
 
