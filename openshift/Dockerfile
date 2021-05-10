@@ -13,10 +13,6 @@ COPY netbox/settings.py /opt/app-root/etc/
 COPY netbox/openshift_urls.py /opt/app-root/etc/
 COPY netbox/openshift_middleware.py /opt/app-root/etc/
 COPY netbox/openshift_auth.py /opt/app-root/etc/
-COPY /opt/app-root/netbox/project-static /opt/app-root/netbox/static
-
-#RUN chgrp -R 0 /opt/app-root/netbox/static \
-#  && chmod -R g+rwX /opt/app-root/netbox/static
 
 USER 1001
 
