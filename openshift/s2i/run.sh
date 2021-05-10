@@ -6,6 +6,12 @@ source /opt/app-root/etc/generate_container_user
 
 set -e
 
+if [ "$(id -u)" -ge 1000 ] ; then
+    sed -e "/^default:/c default:x:$(id -u):$(id -g):Default Application User:/opt/app-root/src:/sbin/nologin" /etc/passwd > /tmp/passwd
+    cat /tmp/passwd > /etc/passwd
+    rm /tmp/passwd
+fi
+
 # Guess the number of workers according to the number of cores
 function get_default_web_concurrency() {
   limit_vars=$(cgroup-limits)
@@ -30,8 +36,6 @@ APP_HOME=$(readlink -f "${APP_HOME:-.}")
 # Change the working directory to APP_HOME
 PYTHONPATH="$(pwd)${PYTHONPATH:+:$PYTHONPATH}"
 cd "$APP_HOME"
-
-fix-permissions /opt/app-root
 
 # Look for 'manage.py' in the current directory
 manage_file=./manage.py
