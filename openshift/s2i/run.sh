@@ -53,7 +53,7 @@ fi
 echo "---> Collecting Django static files ..."
 python3 ${manage_file} collectstatic --noinput
 
-chgrp -R 0 /opt/app-root/src/netbox/static && chmod -R g+rwX /opt/app-root/src/netbox/static
+chown -R default:root /opt/app-root/src/netbox/static && chmod -R g+rwX /opt/app-root/src/netbox/static
 
 export WEB_CONCURRENCY=${WEB_CONCURRENCY:-$(get_default_web_concurrency)}
 
