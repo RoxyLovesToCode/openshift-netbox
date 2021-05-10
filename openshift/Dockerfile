@@ -15,7 +15,7 @@ COPY netbox/openshift_middleware.py /opt/app-root/etc/
 COPY netbox/openshift_auth.py /opt/app-root/etc/
 
 COPY netbox/nginx.conf /etc/nginx/
-COPY netbox/netbox.py /etc/nginx/conf.d
+COPY netbox/netbox.conf /etc/nginx/conf.d
 RUN systemctl enable nginx && systemctl start nginx
 
 USER 1001
