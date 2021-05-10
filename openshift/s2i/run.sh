@@ -53,6 +53,8 @@ fi
 #echo "---> Collecting Django static files ..."
 #python3 ${manage_file} collectstatic --noinput
 
+chgrp -R 0 /opt/app-root/netbox/static && chmod -R g+rwX /opt/app-root/netbox/static
+
 export WEB_CONCURRENCY=${WEB_CONCURRENCY:-$(get_default_web_concurrency)}
 
 echo "---> Serving application with gunicorn ($APP_MODULE) ..."
