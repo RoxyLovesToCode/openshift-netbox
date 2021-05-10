@@ -20,4 +20,7 @@ COPY netbox/netbox.conf /etc/nginx/conf.d
 COPY netbox/netbox.crt /opt/app-root/etc/
 COPY netbox/netbox.key /opt/app-root/etc/
 
+RUN systemctl enable nginx
+RUN systemctl start nginx
+
 USER 1001
