@@ -17,8 +17,7 @@ COPY netbox/openshift_auth.py /opt/app-root/etc/
 COPY netbox/nginx.conf /etc/nginx/
 COPY netbox/netbox.conf /etc/nginx/conf.d
 
-RUN mkdir /etc/ssl/private
-RUN mv netbox/netbox.crt /etc/ssl/certs/
-RUN mv netbox/netbox.key /etc/ssl/private/
+COPY netbox/netbox.crt /opt/app-root/etc/
+COPY netbox/netbox.key /opt/app-root/etc/
 
 USER 1001
