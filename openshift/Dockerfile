@@ -14,7 +14,7 @@ COPY netbox/openshift_urls.py /opt/app-root/etc/
 COPY netbox/openshift_middleware.py /opt/app-root/etc/
 COPY netbox/openshift_auth.py /opt/app-root/etc/
 
-RUN chmod g+w /etc/passwd
+# RUN chmod g+w /etc/passwd
 
 USER 1001
 
