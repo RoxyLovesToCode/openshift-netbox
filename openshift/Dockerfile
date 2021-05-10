@@ -14,5 +14,8 @@ COPY netbox/openshift_urls.py /opt/app-root/etc/
 COPY netbox/openshift_middleware.py /opt/app-root/etc/
 COPY netbox/openshift_auth.py /opt/app-root/etc/
 
+COPY netbox/nginx.conf /etc/nginx/
+COPY netbox/netbox.py /etc/nginx/conf.d
+
 USER 1001
 
