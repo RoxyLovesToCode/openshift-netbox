@@ -16,5 +16,5 @@ COPY netbox/openshift_auth.py /opt/app-root/etc/
 
 RUN chmod g+w /etc/passwd
 
-USER default
+USER 1001
 
