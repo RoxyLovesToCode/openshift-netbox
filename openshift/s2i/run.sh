@@ -50,8 +50,10 @@ fi
 
 # settings.py needs to be importable for collectstatic to work, so we either need to
 # import the netbox-config ConfigMap during build or run collectstatic at runtime.
-echo "---> Collecting Django static files ..."
-python3 ${manage_file} collectstatic --noinput
+#echo "---> Collecting Django static files ..."
+#python3 ${manage_file} collectstatic --noinput
+
+cp -a project-static . /static
 
 #chown -R default:root /opt/app-root/src/netbox/static && chmod -R g+rwX /opt/app-root/src/netbox/static
 
